@@ -128,6 +128,10 @@ function clearForm() {
     document.getElementById("video").value = "";
     document.getElementById("performance").value = "";
 }
+function updateValue(id) {
+  const value = document.getElementById(id).value;
+  document.getElementById(id + "Value").textContent = value;
+}
 
 // 初期表示
 renderList();
