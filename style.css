@@ -1,26 +1,26 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffe4ec; /* ÷F */
+    background: #ffe4ec; /* æ¡œè‰² */
     margin: 0;
     padding: 15px;
 }
 
-/* ƒ^ƒCƒgƒ‹ */
+/* ã‚¿ã‚¤ãƒˆãƒ« */
 h2 {
     text-align: center;
     color: #d63384;
 }
 
-/* ƒJ[ƒh */
+/* ã‚«ãƒ¼ãƒ‰ */
 .card {
-    background: #fff0f5; /* ”–‚¢÷ */
+    background: #fff0f5; /* è–„ã„æ¡œ */
     padding: 15px;
     border-radius: 15px;
     margin-bottom: 15px;
     box-shadow: 0 4px 12px rgba(255,105,180,0.15);
 }
 
-/* “ü—Í */
+/* å…¥åŠ› */
 input {
     width: 100%;
     padding: 12px;
@@ -30,29 +30,50 @@ input {
     border: 1px solid #f8c8dc;
     font-size: 16px;
 }
+input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
 
-/* •Û‘¶ƒ{ƒ^ƒ“ */
+/* ä¸¸ã„éƒ¨åˆ† */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ff69b4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ãƒãƒ¼ */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #ffc0cb;
+  border-radius: 10px;
+}
+
+/* ä¿å­˜ãƒœã‚¿ãƒ³ */
 .save-btn, .chart-btn {
     width: 100%;
     padding: 14px;
     border: none;
-    border-radius: 25px; /* ŠÛ‚­‚·‚é */
+    border-radius: 25px; /* ä¸¸ãã™ã‚‹ */
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(135deg, #ff9ecb, #ff69b4); /* ƒOƒ‰ƒf[ƒVƒ‡ƒ“ */
+    background: linear-gradient(135deg, #ff9ecb, #ff69b4); /* ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ */
     box-shadow: 0 4px 10px rgba(255,105,180,0.3);
     transition: all 0.2s ease;
     opacity: 0.9;
 }
 
-    /* ‰Ÿ‚µ‚½‚Æ‚« */
+    /* æŠ¼ã—ãŸã¨ã */
     .save-btn:active, .chart-btn:active {
         transform: scale(0.95);
         box-shadow: 0 2px 5px rgba(255,105,180,0.2);
     }
 
-/* •ªÍƒ{ƒ^ƒ“ */
+/* åˆ†æãƒœã‚¿ãƒ³ */
 .chart-btn {
     width: 100%;
     padding: 14px;
@@ -63,7 +84,7 @@ input {
     margin-top: 10px;
 }
 
-/* íœƒ{ƒ^ƒ“ */
+/* å‰Šé™¤ãƒœã‚¿ãƒ³ */
 .delete-btn {
     background: linear-gradient(135deg, #ff6b81, #ff4757);
     color: white;
@@ -82,7 +103,7 @@ input {
     margin-right: 5px;
 }
 
-/* ƒŠƒXƒg */
+/* ãƒªã‚¹ãƒˆ */
 li {
     background: #fff;
     padding: 12px;
