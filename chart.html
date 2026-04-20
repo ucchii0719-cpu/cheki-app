@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>分析</title>
+
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h2>📊 分析ページ</h2>
+
+    <!-- グラフ -->
+    <div class="card">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <!-- チェキ売上 -->
+    <div class="card">
+        <h3>📸 チェキ売上</h3>
+        <p id="chekiSales" style="font-size:20px; font-weight:bold;"></p>
+    </div>
+
+    <!-- 戻るボタン -->
+    <button class="save-btn" onclick="goBack()">⬅ 戻る</button>
+
+    <script>
+        const records = JSON.parse(localStorage.getItem("records")) || [];
+
+        // 月別集計
+        const monthly = {};
+        let totalCheki = 0;
+
+        records.forEach(r => {
+            if (!r.date) return;
+
+            const month = r.date.slice(0, 7);
+
+            if (!monthly[month]) {
+                monthly[month] = 0;
+            }
+
+            monthly[month] += r.total;
+
+            totalCheki += r.cheki;
+        });
+
+        // チェキ売上（70元）
+        const chekiRevenue = totalCheki * 70;
+        document.getElementById("chekiSales").textContent = `${chekiRevenue} 元`;
+
+        // グラフ
+        const ctx = document.getElementById("chart").getContext("2d");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: Object.keys(monthly),
+                datasets: [{
+                    label: "月別売上",
+                    data: Object.values(monthly),
+                    backgroundColor: "#ff9ecb"
+                }]
+            }
+        });
+
+        // 戻る
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>

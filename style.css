@@ -1,0 +1,93 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffe4ec; /* 桜色 */
+    margin: 0;
+    padding: 15px;
+}
+
+/* タイトル */
+h2 {
+    text-align: center;
+    color: #d63384;
+}
+
+/* カード */
+.card {
+    background: #fff0f5; /* 薄い桜 */
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(255,105,180,0.15);
+}
+
+/* 入力 */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #f8c8dc;
+    font-size: 16px;
+}
+
+/* 保存ボタン */
+.save-btn, .chart-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 25px; /* 丸くする */
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff9ecb, #ff69b4); /* グラデーション */
+    box-shadow: 0 4px 10px rgba(255,105,180,0.3);
+    transition: all 0.2s ease;
+    opacity: 0.9;
+}
+
+    /* 押したとき */
+    .save-btn:active, .chart-btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 5px rgba(255,105,180,0.2);
+    }
+
+/* 分析ボタン */
+.chart-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff85a2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* 削除ボタン */
+.delete-btn {
+    background: linear-gradient(135deg, #ff6b81, #ff4757);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #ffc0cb, #ff85a2);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+/* リスト */
+li {
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    list-style: none;
+    border-left: 5px solid #ffb6c1;
+}
