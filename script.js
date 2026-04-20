@@ -53,8 +53,8 @@ function renderList() {
       👧 メイド：${r.maids}<br>
       📸 ${r.cheki} / 📱 ${r.phone} / 🌐 ${r.online} / 🎬 ${r.video} / 🎤 ${r.performance}<br>
       💰 合計：${r.total}<br>
-      <button class="edit-btn" onclick="editRecord(${index})">✏️ 編集</button>
-      <button class="delete-btn" onclick="deleteRecord(${index})">🗑 削除</button>
+      <button class="edit-btn" onclick="editRecord(${index})">編集</button>
+      <button class="delete-btn" onclick="deleteRecord(${index})">削除</button>
       <hr>
     `;
 
