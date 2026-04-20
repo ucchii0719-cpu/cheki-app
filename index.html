@@ -1,44 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>売上管理</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>売上管理</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ホイールUI（mobiscroll） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mobiscroll@5/dist/css/mobiscroll.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/mobiscroll@5/dist/js/mobiscroll.min.js"></script>
 </head>
+
 <body>
-    <h2>売上入力</h2>
 
-    <label>日付</label>
-    <input type="date" id="date">
+<h2>🌸 売上入力</h2>
 
-    <label>同事</label>
-    <input type="text" id="maids">
+<div class="card">
 
-    <label>拍立得：<span id="chekiValue">0</span></label>
-    <input type="range" id="cheki" min="0" max="20" value="0" oninput="updateValue('cheki')">
+<label>日付</label>
+<input type="date" id="date">
 
-    <label>手機拍：<span id="phoneValue">0</span></label>
-    <input type="range" id="phone" min="0" max="20" value="0" oninput="updateValue('phone')">
-    
-    <label>線上拍：<span id="onlineValue">0</span></label>
-    <input type="range" id="online" min="0" max="20" value="0" oninput="updateValue('online')">
-    
-    <label>影片：<span id="videoValue">0</span></label>
-    <input type="range" id="video" min="0" max="20" value="0" oninput="updateValue('video')">
-    
-    <label>表演：<span id="performanceValue">0</span></label>
-    <input type="range" id="performance" min="0" max="20" value="0" oninput="updateValue('performance')">
+<label>メイド名</label>
+<input type="text" id="maids" placeholder="Airi, Yuki">
 
-    <button onclick="saveData()">保存</button>
-    <button onclick="goChart()">分析を見る</button>
+<label>📸 拍立得</label>
+<input id="cheki">
 
-    <h2>記録一覧</h2>
-    <ul id="list"></ul>
+<label>📱 手機拍</label>
+<input id="phone">
 
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<label>🌐 線上拍</label>
+<input id="online">
+
+<label>🎬 影片</label>
+<input id="video">
+
+<label>🎤 表演</label>
+<input id="performance">
+
+<button class="save-btn" onclick="saveData()">💾 保存</button>
+<button class="chart-btn" onclick="goChart()">📊 分析</button>
+
+</div>
+
+<h2>📋 記録一覧</h2>
+<ul id="list"></ul>
+
+<script src="script.js"></script>
+
+<script>
+/* 🌸 ホイールピッカー設定 */
+mobiscroll.number('#cheki', { min: 0, max: 50, step: 1, wheel: true });
+mobiscroll.number('#phone', { min: 0, max: 50, step: 1, wheel: true });
+mobiscroll.number('#online', { min: 0, max: 50, step: 1, wheel: true });
+mobiscroll.number('#video', { min: 0, max: 50, step: 1, wheel: true });
+mobiscroll.number('#performance', { min: 0, max: 50, step: 1, wheel: true });
+</script>
 
 </body>
 </html>
