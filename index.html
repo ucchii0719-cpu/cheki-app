@@ -16,20 +16,20 @@
     <label>同事</label>
     <input type="text" id="maids">
 
-    <label>拍立得</label>
-    <input type="number" id="cheki" 　min="0" 　step="1">
+    <label>拍立得：<span id="chekiValue">0</span></label>
+    <input type="range" id="cheki" min="0" max="20" value="0" oninput="updateValue('cheki')">
 
-    <label>手機拍</label>
-    <input type="number" id="phone" 　min="0" 　step="1">
-
-    <label>線上拍</label>
-    <input type="number" id="online" 　min="0" 　step="1">
-
-    <label>影片</label>
-    <input type="number" id="video" 　min="0" 　step="1">
-
-    <label>表演</label>
-    <input type="number" id="performance" 　min="0" 　step="1">
+    <label>手機拍：<span id="phoneValue">0</span></label>
+    <input type="range" id="phone" min="0" max="20" value="0" oninput="updateValue('phone')">
+    
+    <label>線上拍：<span id="onlineValue">0</span></label>
+    <input type="range" id="online" min="0" max="20" value="0" oninput="updateValue('online')">
+    
+    <label>影片：<span id="videoValue">0</span></label>
+    <input type="range" id="video" min="0" max="20" value="0" oninput="updateValue('video')">
+    
+    <label>表演：<span id="performanceValue">0</span></label>
+    <input type="range" id="performance" min="0" max="20" value="0" oninput="updateValue('performance')">
 
     <button onclick="saveData()">保存</button>
     <button onclick="goChart()">分析を見る</button>
