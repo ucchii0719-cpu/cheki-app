@@ -106,3 +106,9 @@ function goChart() {
 
 // 初期表示
 renderList();
+/* 日付をホイール化 */
+mobiscroll.date('#date', {
+  theme: 'ios',
+  display: 'bottom',
+  dateFormat: 'YYYY-MM-DD'
+});
