@@ -22,7 +22,7 @@
 <div class="card">
 
 <label>日付</label>
-<input　id="date">
+<input id="date">
 
 <label>メイド名</label>
 <input type="text" id="maids">
@@ -53,6 +53,11 @@
 <script src="script.js"></script>
 
 <script>
+  mobiscroll.date('#date', {
+  theme: 'ios',
+  display: 'bottom',
+  dateFormat: 'YYYY-MM-DD'
+});
 /* 🌸 ホイールピッカー設定 */
 mobiscroll.number('#cheki', { min: 0, max: 50, step: 1, wheel: true });
 mobiscroll.number('#phone', { min: 0, max: 50, step: 1, wheel: true });
