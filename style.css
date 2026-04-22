@@ -43,6 +43,7 @@ label {
 /* 入力 */
 input {
   width: 100%;
+  height: 44px;
   padding: 10px;
   margin: 5px 0 10px 0;
   border-radius: 12px;
@@ -53,6 +54,7 @@ input {
 /* 日付入力を他と揃える */
 input[type="date"] {
   width: 100%;
+  height: 44px;
   padding: 10px;
   border-radius: 12px;
   border: 1px solid #f8c8dc;
