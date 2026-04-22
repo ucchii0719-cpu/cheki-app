@@ -34,6 +34,7 @@ h2 {
 .form-group {
   width: 100%;
   padding: 0; /* ←ここ重要（削除） */
+  margin-bottom: 10px;
 }
 
 /* 入力 */
@@ -49,6 +50,12 @@ input {
 /* ホイール入力も綺麗に */
 .mbsc-ios.mbsc-textfield-wrapper {
   border-radius: 12px !important;
+}
+.mbsc-textfield-wrapper {
+  width: 100% !important;
+}
+input, .mbsc-textfield-wrapper {
+  width: 100%;
 }
 
 /* 保存ボタン */
