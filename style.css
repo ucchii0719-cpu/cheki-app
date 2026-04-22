@@ -36,7 +36,10 @@ h2 {
   padding: 0; /* ←ここ重要（削除） */
   margin-bottom: 10px;
 }
-
+label {
+  display: block;
+  margin-top: 10px;
+}
 /* 入力 */
 input {
   width: 100%;
@@ -45,6 +48,7 @@ input {
   border-radius: 12px;
   border: 1px solid #f8c8dc;
   font-size: 16px;
+  display: block;
 }
 /* 日付入力を他と揃える */
 input[type="date"] {
