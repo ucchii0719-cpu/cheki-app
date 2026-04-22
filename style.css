@@ -46,7 +46,18 @@ input {
   border: 1px solid #f8c8dc;
   font-size: 16px;
 }
-
+/* 日付入力を他と揃える */
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #f8c8dc;
+  font-size: 16px;
+  background: white;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+}
 /* ホイール入力も綺麗に */
 .mbsc-ios.mbsc-textfield-wrapper {
   border-radius: 12px !important;
