@@ -7,10 +7,9 @@
 
   <title>売上管理</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- ホイールUI（mobiscroll） -->
+  <!-- mobiscroll -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mobiscroll@5/dist/css/mobiscroll.min.css">
   <script src="https://cdn.jsdelivr.net/npm/mobiscroll@5/dist/js/mobiscroll.min.js"></script>
 </head>
@@ -53,13 +52,11 @@
 <script src="script.js"></script>
 
 <script>
- 
-/* 🌸 ホイールピッカー設定 */
-mobiscroll.number('#cheki', { min: 0, max: 50, step: 1, wheel: true });
-mobiscroll.number('#phone', { min: 0, max: 50, step: 1, wheel: true });
-mobiscroll.number('#online', { min: 0, max: 50, step: 1, wheel: true });
-mobiscroll.number('#video', { min: 0, max: 50, step: 1, wheel: true });
-mobiscroll.number('#performance', { min: 0, max: 50, step: 1, wheel: true });
+mobiscroll.number('#cheki', { min: 0, max: 50 });
+mobiscroll.number('#phone', { min: 0, max: 50 });
+mobiscroll.number('#online', { min: 0, max: 50 });
+mobiscroll.number('#video', { min: 0, max: 50 });
+mobiscroll.number('#performance', { min: 0, max: 50 });
 </script>
 
 </body>
