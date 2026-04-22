@@ -32,7 +32,13 @@ input {
   border: 1px solid #f8c8dc;
   font-size: 16px;
 }
-
+.form-group {
+  width: 100%;
+  padding: 0 10px;
+}
+.container {
+  padding: 0 16px;
+}
 /* ホイール入力も綺麗に */
 .mbsc-ios.mbsc-textfield-wrapper {
   border-radius: 12px !important;
