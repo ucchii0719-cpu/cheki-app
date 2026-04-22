@@ -1,4 +1,8 @@
 /* 全体 */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffe4ec; /* 桜色 */
@@ -12,33 +16,36 @@ h2 {
   color: #d63384;
 }
 
+/* コンテナ */
+.container {
+  padding: 0 16px;
+}
+
 /* カード */
 .card {
   background: #fff0f5;
-  padding: 15px;
+  padding: 20px; /* ←少し広げて調整 */
   border-radius: 15px;
   margin-bottom: 15px;
   box-shadow: 0 4px 12px rgba(255,105,180,0.15);
+}
+
+/* フォームグループ */
+.form-group {
+  width: 100%;
+  padding: 0; /* ←ここ重要（削除） */
 }
 
 /* 入力 */
 input {
   width: 100%;
   padding: 10px;
-  box-sizing: border-box;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin: 5px 0 10px 0;
   border-radius: 12px;
   border: 1px solid #f8c8dc;
   font-size: 16px;
 }
-.form-group {
-  width: 100%;
-  padding: 0 10px;
-}
-.container {
-  padding: 0 16px;
-}
+
 /* ホイール入力も綺麗に */
 .mbsc-ios.mbsc-textfield-wrapper {
   border-radius: 12px !important;
@@ -108,6 +115,14 @@ li {
   list-style: none;
   border-left: 5px solid #ffb6c1;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 区切り線 */
+hr {
+  border: none;
+  border-top: 1px dashed #f8c8dc;
+  margin: 10px 0;
+}
 }
 
 /* 区切り線 */
