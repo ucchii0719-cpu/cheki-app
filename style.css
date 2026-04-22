@@ -24,7 +24,8 @@ h2 {
 /* 入力 */
 input {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
+  box-sizing: border-box;
   margin-top: 5px;
   margin-bottom: 10px;
   border-radius: 12px;
