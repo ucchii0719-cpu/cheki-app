@@ -41,6 +41,14 @@ input {
 input[type="date"] {
   -webkit-appearance: none;
   appearance: none;
+  width: 100%;
+  padding: 10px;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
 }
 
 /* mobiscroll幅 */
