@@ -10,6 +10,12 @@
 <body>
 
 <h2>📋 記録一覧</h2>
+<select id="sort" onchange="renderList()">
+<option value="new">新しい順</option>
+<option value="old">古い順</option>
+<option value="high">売上高い順</option>
+<option value="low">売上低い順</option>
+</select>
 
 <ul id="list"></ul>
 
