@@ -58,15 +58,15 @@
         const ctx = document.getElementById("chart").getContext("2d");
 
         new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: Object.keys(monthly),
-                datasets: [{
-                    label: "月別売上",
-                    data: Object.values(monthly),
-                    backgroundColor: "#ff9ecb"
-                }]
-            }
+          type: "bar",
+          data: {
+            labels: sortedMonths, // ←ここ変更
+            datasets: [{
+              label: "月別売上",
+              data: sortedMonths.map(m => monthly[m]), // ←ここ変更
+              backgroundColor: "#ff9ecb"
+            }]
+          }
         });
 
         // 戻る
