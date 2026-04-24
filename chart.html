@@ -49,7 +49,7 @@
 
             totalCheki += r.cheki;
         });
-
+        const sortedMonths = Object.keys(monthly).sort();
         // チェキ売上（70元）
         const chekiRevenue = totalCheki * 70;
         document.getElementById("chekiSales").textContent = `${chekiRevenue} 元`;
