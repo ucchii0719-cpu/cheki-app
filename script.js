@@ -58,7 +58,7 @@ sorted.sort((a, b) => a.total - b.total);
 
   list.innerHTML = "";
 
-  records.forEach((r, index) => {
+  sorted.forEach((r, index) => {
     const li = document.createElement("li");
 
     li.innerHTML = `
