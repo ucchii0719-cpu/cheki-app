@@ -10,6 +10,7 @@
 <body>
 
 <h2>📋 記録一覧</h2>
+<button class="save-btn" onclick="goBack()">⬅ 戻る</button>
 <select id="sort" onchange="renderList()">
 <option value="new">新しい順</option>
 <option value="old">古い順</option>
@@ -18,8 +19,6 @@
 </select>
 
 <ul id="list"></ul>
-
-<button class="save-btn" onclick="goBack()">⬅ 戻る</button>
 
 <script src="script.js"></script>
 
