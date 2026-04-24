@@ -26,8 +26,7 @@
     <script>
     const records = JSON.parse(localStorage.getItem("records")) || [];
     
-    const monthly = {};
-    let totalCheki = 0;
+    const monthly = {};;
     
     records.forEach(r => {
       if (!r.date) return;
@@ -37,7 +36,6 @@
       if (!monthly[month]) monthly[month] = 0;
     
       monthly[month] += r.total;
-      totalCheki += r.cheki;
     });
     
     // 🔥 並び替え
@@ -45,11 +43,6 @@
     
     const labels = sortedMonths;
     const data = sortedMonths.map(m => monthly[m]);
-    
-    // チェキ売上
-    document.getElementById("chekiSales").textContent =
-      `${totalCheki * 70} 元`;
-    
     const ctx = document.getElementById("chart").getContext("2d");
     
     new Chart(ctx, {
