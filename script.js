@@ -91,5 +91,8 @@ function clearForm() {
 function goChart() {
   window.location.href = "chart.html";
 }
+function goList() {
+  window.location.href = "list.html";
+}
 
 renderList();
