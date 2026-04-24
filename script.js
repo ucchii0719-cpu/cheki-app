@@ -1,7 +1,7 @@
 let records = JSON.parse(localStorage.getItem("records")) || [];
 let editIndex = -1;
 
-// 保存
+/* ================= 保存 ================= */
 function saveData() {
   const date = document.getElementById("date").value;
   const maids = document.getElementById("maids").value;
@@ -33,24 +33,22 @@ function saveData() {
   }
 
   localStorage.setItem("records", JSON.stringify(records));
-  renderList();
   clearForm();
+  alert("保存しました✨");
 }
 
-// 一覧表示（並び替え＋売上計算）
+/* ================= 一覧表示 ================= */
 function renderList() {
   const list = document.getElementById("list");
   if (!list) return;
 
   const sortType = document.getElementById("sort")?.value || "new";
 
-  // 🔥 元index付き
   let sorted = records.map((r, i) => ({
     ...r,
     originalIndex: i
   }));
 
-  // 並び替え
   if (sortType === "new") {
     sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
   } else if (sortType === "old") {
@@ -66,7 +64,6 @@ function renderList() {
   sorted.forEach((r) => {
     const li = document.createElement("li");
 
-    // 💰 売上（毎回計算する＝undefined防止）
     const money =
       (r.cheki || 0) * 70 +
       (r.phone || 0) * 70 +
@@ -79,33 +76,23 @@ function renderList() {
       👧 ${r.maids}<br>
       📸${r.cheki} 📱${r.phone} 🌐${r.online} 🎬${r.video} 🎤${r.performance}<br>
       💰合計：${r.total}<br>
-      <span style="color:#ff69b4; font-weight:bold;">
-        💰売上：${money} 元
-      </span><br>
+      💰売上：${money} 元<br>
       <button onclick="editRecord(${r.originalIndex})">編集</button>
       <button onclick="deleteRecord(${r.originalIndex})">削除</button>
+      <hr>
     `;
 
     list.appendChild(li);
   });
 }
 
-// 編集
+/* ================= 編集（ここが重要） ================= */
 function editRecord(index) {
-  const r = records[index];
-
-  document.getElementById("date").value = r.date;
-  document.getElementById("maids").value = r.maids;
-  document.getElementById("cheki").value = r.cheki;
-  document.getElementById("phone").value = r.phone;
-  document.getElementById("online").value = r.online;
-  document.getElementById("video").value = r.video;
-  document.getElementById("performance").value = r.performance;
-
-  editIndex = index;
+  localStorage.setItem("editIndex", index);
+  window.location.href = "index.html";
 }
 
-// 削除
+/* ================= 削除 ================= */
 function deleteRecord(index) {
   if (confirm("削除しますか？")) {
     records.splice(index, 1);
@@ -114,7 +101,7 @@ function deleteRecord(index) {
   }
 }
 
-// リセット
+/* ================= 入力欄リセット ================= */
 function clearForm() {
   document.getElementById("date").value = "";
   document.getElementById("maids").value = "";
@@ -125,7 +112,7 @@ function clearForm() {
   document.getElementById("performance").value = 0;
 }
 
-// ページ移動
+/* ================= ページ移動 ================= */
 function goChart() {
   window.location.href = "chart.html";
 }
@@ -134,5 +121,26 @@ function goList() {
   window.location.href = "list.html";
 }
 
-// 初期表示
+/* ================= 編集データ受け取り ================= */
+const editIndexFromStorage = localStorage.getItem("editIndex");
+
+if (editIndexFromStorage !== null) {
+  const r = records[editIndexFromStorage];
+
+  if (r) {
+    document.getElementById("date").value = r.date;
+    document.getElementById("maids").value = r.maids;
+    document.getElementById("cheki").value = r.cheki;
+    document.getElementById("phone").value = r.phone;
+    document.getElementById("online").value = r.online;
+    document.getElementById("video").value = r.video;
+    document.getElementById("performance").value = r.performance;
+
+    editIndex = Number(editIndexFromStorage);
+  }
+
+  localStorage.removeItem("editIndex");
+}
+
+/* ================= 初期表示 ================= */
 renderList();
