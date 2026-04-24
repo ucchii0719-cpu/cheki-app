@@ -1,6 +1,7 @@
 let records = JSON.parse(localStorage.getItem("records")) || [];
 let editIndex = -1;
 
+// 保存
 function saveData() {
   const date = document.getElementById("date").value;
   const maids = document.getElementById("maids").value;
@@ -36,29 +37,33 @@ function saveData() {
   clearForm();
 }
 
+// 一覧表示（並び替え付き）
 function renderList() {
   const list = document.getElementById("list");
+  if (!list) return;
+
   const sortType = document.getElementById("sort")?.value || "new";
 
-// コピーして並び替え（元データ壊さない）
-let sorted = [...records];
+  // 🔥 元indexを保持
+  let sorted = records.map((r, i) => ({
+    ...r,
+    originalIndex: i
+  }));
 
-if (sortType === "new") {
-sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
-} else if (sortType === "old") {
-sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
-} else if (sortType === "high") {
-sorted.sort((a, b) => b.total - a.total);
-} else if (sortType === "low") {
-sorted.sort((a, b) => a.total - b.total);
-}
-
-  // 🔥 これ追加（超重要）
-  if (!list) return;
+  // 並び替え
+  if (sortType === "new") {
+    sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+  } else if (sortType === "old") {
+    sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+  } else if (sortType === "high") {
+    sorted.sort((a, b) => b.total - a.total);
+  } else if (sortType === "low") {
+    sorted.sort((a, b) => a.total - b.total);
+  }
 
   list.innerHTML = "";
 
-  sorted.forEach((r, index) => {
+  sorted.forEach((r) => {
     const li = document.createElement("li");
 
     li.innerHTML = `
@@ -66,13 +71,15 @@ sorted.sort((a, b) => a.total - b.total);
       👧 ${r.maids}<br>
       📸${r.cheki} 📱${r.phone} 🌐${r.online} 🎬${r.video} 🎤${r.performance}<br>
       💰合計：${r.total}<br>
-      <button onclick="editRecord(${index})">編集</button>
-      <button onclick="deleteRecord(${index})">削除</button>
+      <button onclick="editRecord(${r.originalIndex})">編集</button>
+      <button onclick="deleteRecord(${r.originalIndex})">削除</button>
     `;
 
     list.appendChild(li);
   });
 }
+
+// 編集
 function editRecord(index) {
   const r = records[index];
 
@@ -87,6 +94,7 @@ function editRecord(index) {
   editIndex = index;
 }
 
+// 削除
 function deleteRecord(index) {
   if (confirm("削除しますか？")) {
     records.splice(index, 1);
@@ -95,6 +103,7 @@ function deleteRecord(index) {
   }
 }
 
+// リセット
 function clearForm() {
   document.getElementById("date").value = "";
   document.getElementById("maids").value = "";
@@ -105,11 +114,14 @@ function clearForm() {
   document.getElementById("performance").value = 0;
 }
 
+// ページ移動
 function goChart() {
   window.location.href = "chart.html";
 }
+
 function goList() {
   window.location.href = "list.html";
 }
 
+// 初期表示
 renderList();
