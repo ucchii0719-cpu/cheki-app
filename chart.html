@@ -30,44 +30,45 @@
     <button class="save-btn" onclick="goBack()">⬅ 戻る</button>
 
     <script>
-        const records = JSON.parse(localStorage.getItem("records")) || [];
-
-        // 月別集計
-        const monthly = {};
-        let totalCheki = 0;
-
-        records.forEach(r => {
-            if (!r.date) return;
-
-            const month = r.date.slice(0, 7);
-
-            if (!monthly[month]) {
-                monthly[month] = 0;
-            }
-
-            monthly[month] += r.total;
-
-            totalCheki += r.cheki;
-        });
-        const sortedMonths = Object.keys(monthly).sort();
-        // チェキ売上（70元）
-        const chekiRevenue = totalCheki * 70;
-        document.getElementById("chekiSales").textContent = `${chekiRevenue} 元`;
-
-        // グラフ
-        const ctx = document.getElementById("chart").getContext("2d");
-
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: sortedMonths, // ←ここ変更
-            datasets: [{
-              label: "月別売上",
-              data: sortedMonths.map(m => monthly[m]), // ←ここ変更
-              backgroundColor: "#ff9ecb"
-            }]
-          }
-        });
+    const records = JSON.parse(localStorage.getItem("records")) || [];
+    
+    const monthly = {};
+    let totalCheki = 0;
+    
+    records.forEach(r => {
+      if (!r.date) return;
+    
+      const month = r.date.slice(0, 7);
+    
+      if (!monthly[month]) monthly[month] = 0;
+    
+      monthly[month] += r.total;
+      totalCheki += r.cheki;
+    });
+    
+    // 🔥 並び替え
+    const sortedMonths = Object.keys(monthly).sort();
+    
+    const labels = sortedMonths;
+    const data = sortedMonths.map(m => monthly[m]);
+    
+    // チェキ売上
+    document.getElementById("chekiSales").textContent =
+      `${totalCheki * 70} 元`;
+    
+    const ctx = document.getElementById("chart").getContext("2d");
+    
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "月別売上",
+          data: data,
+          backgroundColor: "#ff9ecb"
+        }]
+      }
+    });
 
         // 戻る
         function goBack() {
