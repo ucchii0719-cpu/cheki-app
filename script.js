@@ -38,6 +38,10 @@ function saveData() {
 
 function renderList() {
   const list = document.getElementById("list");
+
+  // 🔥 これ追加（超重要）
+  if (!list) return;
+
   list.innerHTML = "";
 
   records.forEach((r, index) => {
@@ -55,7 +59,6 @@ function renderList() {
     list.appendChild(li);
   });
 }
-
 function editRecord(index) {
   const r = records[index];
 
