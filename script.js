@@ -13,12 +13,12 @@ function saveData() {
   const performance = Number(document.getElementById("performance").value) || 0;
 
   const total = cheki + phone + online + video + performance;
-  const money =
-  cheki * 70 +
-  phone * 70 +
-  online * 70 +
-  video * 75 +
-  performance * 75;
+  cconst money =
+  (r.cheki || 0) * 70 +
+  (r.phone || 0) * 70 +
+  (r.online || 0) * 70 +
+  (r.video || 0) * 75 +
+  (r.performance || 0) * 75;
 
   const data = {
     date,
