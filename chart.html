@@ -24,6 +24,8 @@
     <button class="save-btn" onclick="goBack()">⬅ 戻る</button>
 
     <script>
+    alert("records:" + records.length);
+    alert("monthly:" + Object.keys(monthly).length);
     const records = JSON.parse(localStorage.getItem("records")) || [];
     
     const monthly = {};;
