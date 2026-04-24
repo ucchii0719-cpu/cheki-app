@@ -78,7 +78,9 @@ function renderList() {
       👧 ${r.maids}<br>
       📸${r.cheki} 📱${r.phone} 🌐${r.online} 🎬${r.video} 🎤${r.performance}<br>
       💰合計：${r.total}<br>
-      💰売上：${r.money} 元<br>
+      <span style="color:#ff69b4; font-weight:bold;">
+      💰売上：${r.money} 元
+      </span>
       <button onclick="editRecord(${r.originalIndex})">編集</button>
       <button onclick="deleteRecord(${r.originalIndex})">削除</button>
     `;
