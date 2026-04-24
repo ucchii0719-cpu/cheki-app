@@ -37,11 +37,6 @@ records.forEach(r => {
 
   monthly[month] += r.total;
 });
-
-// 🔥 ここで確認（順番重要）
-alert("records:" + records.length);
-alert("monthly:" + Object.keys(monthly).length);
-
 // 並び替え
 const sortedMonths = Object.keys(monthly).sort();
 
