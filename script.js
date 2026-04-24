@@ -13,12 +13,6 @@ function saveData() {
   const performance = Number(document.getElementById("performance").value) || 0;
 
   const total = cheki + phone + online + video + performance;
-  cconst money =
-  (r.cheki || 0) * 70 +
-  (r.phone || 0) * 70 +
-  (r.online || 0) * 70 +
-  (r.video || 0) * 75 +
-  (r.performance || 0) * 75;
 
   const data = {
     date,
@@ -28,8 +22,7 @@ function saveData() {
     online,
     video,
     performance,
-    total,
-    money
+    total
   };
 
   if (editIndex === -1) {
@@ -44,14 +37,14 @@ function saveData() {
   clearForm();
 }
 
-// 一覧表示（並び替え付き）
+// 一覧表示（並び替え＋売上計算）
 function renderList() {
   const list = document.getElementById("list");
   if (!list) return;
 
   const sortType = document.getElementById("sort")?.value || "new";
 
-  // 🔥 元indexを保持
+  // 🔥 元index付き
   let sorted = records.map((r, i) => ({
     ...r,
     originalIndex: i
@@ -73,12 +66,22 @@ function renderList() {
   sorted.forEach((r) => {
     const li = document.createElement("li");
 
+    // 💰 売上（毎回計算する＝undefined防止）
+    const money =
+      (r.cheki || 0) * 70 +
+      (r.phone || 0) * 70 +
+      (r.online || 0) * 70 +
+      (r.video || 0) * 75 +
+      (r.performance || 0) * 75;
+
     li.innerHTML = `
-      ${r.date}<br>
-      ${r.maids}<br>
+      📅 ${r.date}<br>
+      👧 ${r.maids}<br>
       📸${r.cheki} 📱${r.phone} 🌐${r.online} 🎬${r.video} 🎤${r.performance}<br>
-      合計：${r.total}<br>
-      売上：${r.money} 元
+      💰合計：${r.total}<br>
+      <span style="color:#ff69b4; font-weight:bold;">
+        💰売上：${money} 元
+      </span><br>
       <button onclick="editRecord(${r.originalIndex})">編集</button>
       <button onclick="deleteRecord(${r.originalIndex})">削除</button>
     `;
