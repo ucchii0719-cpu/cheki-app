@@ -13,6 +13,12 @@ function saveData() {
   const performance = Number(document.getElementById("performance").value) || 0;
 
   const total = cheki + phone + online + video + performance;
+  const money =
+  cheki * 70 +
+  phone * 70 +
+  online * 70 +
+  video * 75 +
+  performance * 75;
 
   const data = {
     date,
@@ -22,7 +28,8 @@ function saveData() {
     online,
     video,
     performance,
-    total
+    total,
+    money
   };
 
   if (editIndex === -1) {
@@ -71,6 +78,7 @@ function renderList() {
       👧 ${r.maids}<br>
       📸${r.cheki} 📱${r.phone} 🌐${r.online} 🎬${r.video} 🎤${r.performance}<br>
       💰合計：${r.total}<br>
+      💰売上：${r.money} 元<br>
       <button onclick="editRecord(${r.originalIndex})">編集</button>
       <button onclick="deleteRecord(${r.originalIndex})">削除</button>
     `;
