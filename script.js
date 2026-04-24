@@ -142,5 +142,26 @@ if (editIndexFromStorage !== null) {
   localStorage.removeItem("editIndex");
 }
 
-/* ================= 初期表示 ================= */
-renderList();
+window.onload = function () {
+  renderList();
+
+  const editIndexFromStorage = localStorage.getItem("editIndex");
+
+  if (editIndexFromStorage !== null) {
+    const r = records[editIndexFromStorage];
+
+    if (r) {
+      document.getElementById("date").value = r.date;
+      document.getElementById("maids").value = r.maids;
+      document.getElementById("cheki").value = r.cheki;
+      document.getElementById("phone").value = r.phone;
+      document.getElementById("online").value = r.online;
+      document.getElementById("video").value = r.video;
+      document.getElementById("performance").value = r.performance;
+
+      editIndex = Number(editIndexFromStorage);
+    }
+
+    localStorage.removeItem("editIndex");
+  }
+};
