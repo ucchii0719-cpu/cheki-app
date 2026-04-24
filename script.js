@@ -38,6 +38,20 @@ function saveData() {
 
 function renderList() {
   const list = document.getElementById("list");
+  const sortType = document.getElementById("sort")?.value || "new";
+
+// コピーして並び替え（元データ壊さない）
+let sorted = [...records];
+
+if (sortType === "new") {
+sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+} else if (sortType === "old") {
+sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+} else if (sortType === "high") {
+sorted.sort((a, b) => b.total - a.total);
+} else if (sortType === "low") {
+sorted.sort((a, b) => a.total - b.total);
+}
 
   // 🔥 これ追加（超重要）
   if (!list) return;
